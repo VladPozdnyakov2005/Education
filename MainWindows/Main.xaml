@@ -1,0 +1,151 @@
+﻿<Window x:Class="Education.MainWindows.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Education.MainWindows"
+        mc:Ignorable="d"
+        Title="Центр дополнительного образования «Колледж «Коломна»" 
+        Height="650" 
+        WindowStartupLocation="CenterScreen"
+        Width="800" 
+        ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="LightBlue"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Image Source="/assets/CollegeIcon.png" Width="80" Height="80" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+        <TextBlock Text="Центр дополнительного образования «Колледж «Коломна»" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Lucida console" FontWeight="Bold" FontSize="16" Margin="100,15,0,0"></TextBlock>
+        <Button Click="Button_Click" x:Name="enter" Width="70" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,30,0" FontWeight="Bold" FontFamily="Lucida console" Visibility="Visible">
+            <Button.Style>
+            <Style TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <ContentPresenter />
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="Red" />
+                    </Trigger>
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Trigger>
+                    </Style.Triggers>
+            </Style>
+            </Button.Style>
+            <TextBlock Text="Войти" FontWeight="Bold" FontFamily="Lucida console" TextAlignment="Center" FontSize="16" Margin="0,5"/>
+        </Button>
+        <Button x:Name="profileButton" Click="profileButton_Click" Width="120" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="-15,10,30,0" FontWeight="Bold" FontFamily="Lucida console" Visibility="Hidden">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <ContentPresenter />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="Red" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <TextBlock Text="Мой профиль" FontWeight="Bold" FontFamily="Lucida console" TextAlignment="Center" FontSize="16" Margin="0,5"/>
+        </Button>
+        <Button x:Name="AdminButton" Command="{Binding ToAdminPage}" Width="135" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,20,0" FontWeight="Bold" FontFamily="Lucida console" Visibility="Hidden">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <ContentPresenter />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="Red" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <TextBlock Text="Панель админа" FontWeight="Bold" FontFamily="Lucida console" TextAlignment="Center" FontSize="16" Margin="0,5"/>
+        </Button>
+        <Image Source="/assets/CollegeIcon.png" Width="210" Height="218" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="-111,0,0,-45" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="28.369"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Source="/assets/CollegeIcon.png" Width="242" Height="203" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,-96,-39" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-34.476"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <DockPanel Margin="0,50,0,0" Width="600" >
+            <Border BorderBrush="#00CED1" BorderThickness="2" DockPanel.Dock="Top">
+                <StackPanel Width="600" Height="55" Orientation="Horizontal" HorizontalAlignment="Center" DockPanel.Dock="Top" Background="#00BFFF">
+                    <Button Command="{Binding ToHomePage}" Style="{StaticResource ButtonStyle}" BorderBrush="#00BFFF" FontWeight="Bold" FontFamily="Lucida console" Background="#00BFFF">
+                        <TextBlock Text="Главная" TextWrapping="Wrap" TextAlignment="Center"  Margin="20,5" FontWeight="Bold" FontFamily="Lucida console" Background="#00BFFF"/>
+                    </Button>
+                    <Button Command="{Binding ToOfflinePage}" Style="{StaticResource ButtonStyle}" BorderBrush="#00BFFF" FontWeight="Bold" FontFamily="Lucida console" Background="#00BFFF">
+                        <TextBlock Text="Очные курсы" TextWrapping="Wrap" TextAlignment="Center" Margin="5,5" FontWeight="Bold" FontFamily="Lucida console" Background="#00BFFF"/>
+                    </Button>
+                    <Button Command="{Binding ToOnlinePage}" Style="{StaticResource ButtonStyle}" BorderBrush="#00BFFF" Margin="10,0,0,0" FontWeight="Bold" FontFamily="Lucida console" Background="#00BFFF">
+                        <TextBlock Text="Дистанционные курсы" Width="130" TextWrapping="Wrap" TextAlignment="Center" Margin="5,5" FontWeight="Bold" FontFamily="Lucida console" Background="#00BFFF"/>
+                    </Button>
+                    <Button Command="{Binding ToInformationPage}" Style="{StaticResource ButtonStyle}" BorderBrush="#00BFFF" FontWeight="Bold" FontFamily="Lucida console" Background="#00BFFF">
+                        <TextBlock Text="Сведения об образовательной организации" Width="170" TextWrapping="Wrap" Margin="-10,5" TextAlignment="Center" FontWeight="Bold" FontFamily="Lucida console" Background="#00BFFF"/>
+                    </Button>
+                    <Button Command="{Binding ToFeedbackPage}" Style="{StaticResource ButtonStyle}" BorderBrush="#00BFFF" FontWeight="Bold" Margin="-15,0,0,0" FontFamily="Lucida console" Background="#00BFFF">
+                        <TextBlock Text="Отзывы" Width="105" TextWrapping="Wrap" Margin="5,5" TextAlignment="Center" FontWeight="Bold" FontFamily="Lucida console" Background="#00BFFF"/>
+                    </Button>
+                </StackPanel>
+            </Border>
+            <UserControl Margin="5" Content="{Binding CurrentPage}"/>
+        </DockPanel>
+    </Grid>
+</Window>

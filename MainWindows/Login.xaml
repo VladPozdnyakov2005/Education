@@ -1,0 +1,136 @@
+﻿<Window x:Class="Education.MainWindows.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Education.MainWindows"
+        mc:Ignorable="d"
+        Title="Логин" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="ВХОД" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30" FontFamily="Lucida console"  FontWeight="Bold" FontSize="24" Foreground="blue" />
+        <TextBlock Text="Логин" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="90" TextAlignment="Center" FontFamily="Lucida console"  FontWeight="Bold" FontSize="20" Foreground="#1E90FF" Margin="0,10"/>
+        <TextBox x:Name="LoginTextBox" Grid.Row="2" Margin="0,10,0,20" Width="200" BorderBrush="#1E90FF" Foreground="#1E90FF" Height="27" FontSize="16" FontWeight="Bold"/>
+        <TextBlock Text="Пароль" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"  Width="90" TextAlignment="Center" FontFamily="Lucida console"  FontWeight="Bold" FontSize="20" Foreground="#1E90FF" Margin="0,0"/>
+        <PasswordBox x:Name="PasswordTextBox" Grid.Row="4" Margin="0,10" Width="200" BorderBrush="#1E90FF" Foreground="#1E90FF"  Height="27" FontSize="16"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="5" HorizontalAlignment="Center">
+            <TextBlock Text="Ещё нет аккаунта?" FontFamily="Lucida console"  FontWeight="Bold" FontSize="14" Foreground="#1E90FF"/>
+            <Button Click="Registration_Click" Margin="10,0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="Red"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="False">
+                                <Setter Property="Foreground" Value="Blue"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <TextBlock Text="Зарегестрируйтесь!"  FontSize="14" FontFamily="Lucida console"  FontWeight="Bold"/>
+            </Button>
+        </StackPanel>
+        <Button Click="Login_Button" Content="Войти" Grid.Row="6" Width="100" Height="30" FontSize="16" Margin="0,20"  FontFamily="Lucida console"  FontWeight="Bold">
+                <Button.Style>
+                    <Style TargetType="Button">
+                    <Setter Property="Background" Value="#1E90FF" />
+                        <Setter Property="Foreground" Value="White" />
+                    <Setter Property="BorderBrush" Value="#1E90FF" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                        <ContentPresenter HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red" />
+                            <Setter Property="BorderBrush" Value="Red" />
+                        </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Click="Home_Click" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <ContentPresenter />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="Red"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Image Source="/assets/back.png"/>
+        </Button>
+        <Image Grid.Row="0" Source="/assets/CollegeIcon.png" Stretch="UniformToFill" Width="100" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2" Margin="100,0" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="20.208"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Grid.Row="0" Source="/assets/CollegeIcon.png" Stretch="UniformToFill" Width="100" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.RowSpan="2" Margin="0,0,100,0" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-20.91"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Grid.Row="7" Source="/assets/CollegeIcon.png" Stretch="UniformToFill" Width="100" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2" Margin="100,0" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-24.084"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Grid.Row="7" Source="/assets/CollegeIcon.png" Stretch="UniformToFill" Width="100" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.RowSpan="2" Margin="0,0,100,0" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="20.531"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+    </Grid>
+</Window>

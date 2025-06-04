@@ -1,0 +1,23 @@
+﻿<Window x:Class="Education.MainWindows.Offline"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Education.MainWindows"
+        mc:Ignorable="d"
+        Title="Очные курсы" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <Image Source="/assets/CollegeIcon.png" Width="80" Height="80" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+        <TextBlock Text="Центр дополнительного образования «Колледж «Коломна»" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Lucida console" FontWeight="Bold" FontSize="18" Margin="100,15,0,0"></TextBlock>
+        <Grid Width="700" Height="350" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,40,0,0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Очные курсы" Width="150" Height="30" HorizontalAlignment="Left" TextAlignment="Center"  VerticalAlignment="Top" FontFamily="Lucida console" FontWeight="Bold" FontSize="22" Margin="30,10"/>
+                <TextBox Width="250" Height="20" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,7,0,0"/>
+                <ComboBox Width="150" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,7,0,0" SelectedIndex="1" >
+                    <ComboBoxItem Content="По возрастанию" />
+                    <ComboBoxItem Content="По убыванию"/>
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

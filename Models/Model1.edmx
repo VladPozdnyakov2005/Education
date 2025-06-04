@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище educationModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clientName" Type="varchar" MaxLength="100" />
+          <Property Name="comment" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Favorite">
+          <Key>
+            <PropertyRef Name="FavoriteID" />
+          </Key>
+          <Property Name="FavoriteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="OffID" Type="int" />
+          <Property Name="OnID" Type="int" />
+        </EntityType>
+        <EntityType Name="offline_education">
+          <Key>
+            <PropertyRef Name="OffID" />
+          </Key>
+          <Property Name="OffID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="offName" Type="varchar" MaxLength="100" />
+          <Property Name="offSrok" Type="int" />
+          <Property Name="seats" Type="int" />
+          <Property Name="divisNum" Type="int" />
+          <Property Name="courseType" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="online_education">
+          <Key>
+            <PropertyRef Name="OnID" />
+          </Key>
+          <Property Name="OnID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="onName" Type="varchar" MaxLength="100" />
+          <Property Name="onSrok" Type="int" />
+          <Property Name="onSeats" Type="int" />
+          <Property Name="onPrice" Type="int" />
+          <Property Name="courseType" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="20" />
+          <Property Name="surname" Type="varchar" MaxLength="30" />
+          <Property Name="login" Type="varchar" MaxLength="50" />
+          <Property Name="birth" Type="datetime" />
+          <Property Name="password" Type="varchar" MaxLength="255" />
+          <Property Name="access" Type="varchar" MaxLength="6" />
+        </EntityType>
+        <Association Name="FK__Favorite__OffID__3F466844">
+          <End Role="offline_education" Type="Self.offline_education" Multiplicity="0..1" />
+          <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="offline_education">
+              <PropertyRef Name="OffID" />
+            </Principal>
+            <Dependent Role="Favorite">
+              <PropertyRef Name="OffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Favorite__OnID__403A8C7D">
+          <End Role="online_education" Type="Self.online_education" Multiplicity="0..1" />
+          <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="online_education">
+              <PropertyRef Name="OnID" />
+            </Principal>
+            <Dependent Role="Favorite">
+              <PropertyRef Name="OnID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Favorite__UserID__3E52440B">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Favorite">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище educationModelContainer">
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Favorite" EntityType="Self.Favorite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="offline_education" EntityType="Self.offline_education" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="online_education" EntityType="Self.online_education" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Favorite__OffID__3F466844" Association="Self.FK__Favorite__OffID__3F466844">
+            <End Role="offline_education" EntitySet="offline_education" />
+            <End Role="Favorite" EntitySet="Favorite" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Favorite__OnID__403A8C7D" Association="Self.FK__Favorite__OnID__403A8C7D">
+            <End Role="online_education" EntitySet="online_education" />
+            <End Role="Favorite" EntitySet="Favorite" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Favorite__UserID__3E52440B" Association="Self.FK__Favorite__UserID__3E52440B">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Favorite" EntitySet="Favorite" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="educationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="comment" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Favorite">
+          <Key>
+            <PropertyRef Name="FavoriteID" />
+          </Key>
+          <Property Name="FavoriteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="OffID" Type="Int32" />
+          <Property Name="OnID" Type="Int32" />
+          <NavigationProperty Name="offline_education" Relationship="Self.FK__Favorite__OffID__3F466844" FromRole="Favorite" ToRole="offline_education" />
+          <NavigationProperty Name="online_education" Relationship="Self.FK__Favorite__OnID__403A8C7D" FromRole="Favorite" ToRole="online_education" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Favorite__UserID__3E52440B" FromRole="Favorite" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="offline_education">
+          <Key>
+            <PropertyRef Name="OffID" />
+          </Key>
+          <Property Name="OffID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="offName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="offSrok" Type="Int32" />
+          <Property Name="seats" Type="Int32" />
+          <Property Name="divisNum" Type="Int32" />
+          <Property Name="courseType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Favorite" Relationship="Self.FK__Favorite__OffID__3F466844" FromRole="offline_education" ToRole="Favorite" />
+        </EntityType>
+        <EntityType Name="online_education">
+          <Key>
+            <PropertyRef Name="OnID" />
+          </Key>
+          <Property Name="OnID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="onName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="onSrok" Type="Int32" />
+          <Property Name="onSeats" Type="Int32" />
+          <Property Name="onPrice" Type="Int32" />
+          <Property Name="courseType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Favorite" Relationship="Self.FK__Favorite__OnID__403A8C7D" FromRole="online_education" ToRole="Favorite" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="surname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="birth" Type="DateTime" Precision="3" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="access" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Favorite" Relationship="Self.FK__Favorite__UserID__3E52440B" FromRole="Users" ToRole="Favorite" />
+        </EntityType>
+        <Association Name="FK__Favorite__OffID__3F466844">
+          <End Role="offline_education" Type="Self.offline_education" Multiplicity="0..1" />
+          <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="offline_education">
+              <PropertyRef Name="OffID" />
+            </Principal>
+            <Dependent Role="Favorite">
+              <PropertyRef Name="OffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Favorite__OnID__403A8C7D">
+          <End Role="online_education" Type="Self.online_education" Multiplicity="0..1" />
+          <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="online_education">
+              <PropertyRef Name="OnID" />
+            </Principal>
+            <Dependent Role="Favorite">
+              <PropertyRef Name="OnID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Favorite__UserID__3E52440B">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Favorite">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="educationEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clients" EntityType="Self.Clients" />
+          <EntitySet Name="Favorite" EntityType="Self.Favorite" />
+          <EntitySet Name="offline_education" EntityType="Self.offline_education" />
+          <EntitySet Name="online_education" EntityType="Self.online_education" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK__Favorite__OffID__3F466844" Association="Self.FK__Favorite__OffID__3F466844">
+            <End Role="offline_education" EntitySet="offline_education" />
+            <End Role="Favorite" EntitySet="Favorite" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Favorite__OnID__403A8C7D" Association="Self.FK__Favorite__OnID__403A8C7D">
+            <End Role="online_education" EntitySet="online_education" />
+            <End Role="Favorite" EntitySet="Favorite" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Favorite__UserID__3E52440B" Association="Self.FK__Favorite__UserID__3E52440B">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Favorite" EntitySet="Favorite" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище educationModelContainer" CdmEntityContainer="educationEntities2">
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="educationModel.Clients">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="clientName" ColumnName="clientName" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Favorite">
+            <EntityTypeMapping TypeName="educationModel.Favorite">
+              <MappingFragment StoreEntitySet="Favorite">
+                <ScalarProperty Name="FavoriteID" ColumnName="FavoriteID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="OffID" ColumnName="OffID" />
+                <ScalarProperty Name="OnID" ColumnName="OnID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="offline_education">
+            <EntityTypeMapping TypeName="educationModel.offline_education">
+              <MappingFragment StoreEntitySet="offline_education">
+                <ScalarProperty Name="OffID" ColumnName="OffID" />
+                <ScalarProperty Name="offName" ColumnName="offName" />
+                <ScalarProperty Name="offSrok" ColumnName="offSrok" />
+                <ScalarProperty Name="seats" ColumnName="seats" />
+                <ScalarProperty Name="divisNum" ColumnName="divisNum" />
+                <ScalarProperty Name="courseType" ColumnName="courseType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="online_education">
+            <EntityTypeMapping TypeName="educationModel.online_education">
+              <MappingFragment StoreEntitySet="online_education">
+                <ScalarProperty Name="OnID" ColumnName="OnID" />
+                <ScalarProperty Name="onName" ColumnName="onName" />
+                <ScalarProperty Name="onSrok" ColumnName="onSrok" />
+                <ScalarProperty Name="onSeats" ColumnName="onSeats" />
+                <ScalarProperty Name="onPrice" ColumnName="onPrice" />
+                <ScalarProperty Name="courseType" ColumnName="courseType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="educationModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="educationModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="birth" ColumnName="birth" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="access" ColumnName="access" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
