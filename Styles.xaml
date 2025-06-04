@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="BeautifulButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="#fcac1e"/>
+        <Setter Property="Foreground" Value=" White"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Margin" Value="0,0,0,10"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Padding" Value="10,5"/>
+        <Setter Property="BorderThickness" Value="3"/>
+        <Setter Property="BorderBrush" Value="#fca100"/>
+        
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#ffa80d"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="BorderBrush" Value="#cf8400"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="#6495ED"/>
+                <Setter Property="Cursor" Value="Wait"/>
+                <Setter Property="BorderBrush" Value="#6495ED"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="TextStyle" TargetType="TextBlock">
+        <Setter Property="Background" Value="#bab5b5"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Height" Value="23"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Margin" Value="20,5,0,15"/>
+    </Style>
+</ResourceDictionary>

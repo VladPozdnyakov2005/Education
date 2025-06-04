@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="Education.View.OnlinePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Education.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <TextBlock Text="Дистанционнные курсы"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center" 
+            FontFamily="Lucida console" 
+            FontWeight="Bold" 
+            FontSize="24"
+            Foreground="blue"
+            TextWrapping="Wrap"
+           TextAlignment="Center"
+            Margin="-15,-5,0,0" />
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ItemsControl x:Name="OneItem" ItemsSource="{Binding OnlineShow}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" ItemWidth="550" ItemHeight="150"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="White" 
+                             BorderBrush="#00BFFF" 
+                            BorderThickness="1" 
+                            Margin="5"
+                            Padding="10" 
+                            CornerRadius="5">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding onName, StringFormat='Курс: {0:d}'}" TextWrapping="Wrap" FontSize="16" FontWeight="Bold"/>
+                                    <TextBlock FontSize="16"/>
+                                    <TextBlock Text="{Binding onSrok, StringFormat='Сроки: {0:d} мес.'}" FontSize="14" FontWeight="Bold"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding onSeats, StringFormat='Количество мест: {0:d}'}" FontSize="14" FontWeight="Bold"/>
+                                        <Button Name="FavoriteButton" Content="Записаться на курс" Width="135" Height="30" Margin="240,5" Click="FavoriteButton_Click" BorderBrush="#00CED1" Background="LightYellow" FontWeight="Bold" Tag="False"/>
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding onPrice, StringFormat='Цена: {0:d} руб.'}" FontSize="14" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Education.View.HomePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Education.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    <Grid Height="550" Margin="0,90">
+        <TextBlock Text="Добро пожаловать!"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top" 
+            FontFamily="Lucida console" 
+            FontWeight="Bold" 
+            FontSize="24"
+            Foreground="#1E90FF" 
+            Margin="0,30" />
+        <TextBlock Text="Это программа просмотра и поиска дополнительного профессионального образования, предоставленного Государственным образовательным учреждением Московской области"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top" 
+            FontFamily="Lucida console" 
+            FontWeight="Bold" 
+            FontSize="24"
+            Foreground="#1E90FF"
+            Width="600"
+            Height="240"
+            TextWrapping="Wrap"
+            TextAlignment="Center"
+            Margin="0,90" />
+        <TextBlock Text="«Колледж «Коломна»"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top" 
+            FontFamily="Lucida console" 
+            FontWeight="Bold"
+            FontSize="24"
+            Foreground="blue" 
+            Margin="0,230" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,139 @@
+﻿<UserControl x:Class="Education.View.InformationPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Education.View"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="600">
+    <ScrollViewer x:Name="mainScrollViewer">
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="2" Margin="0,10" Grid.Column="0">
+                    <TextBlock Text="Полное и сокращенное (при наличии) наименование образовательной организации" Width="270" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Height="60"/>
+                </Border>
+                <Border BorderThickness="2" Margin="0,10" Grid.Column="1">
+                    <TextBlock Text="Государственное бюджетное профессиональное образовательное учреждение Московской области «Колледж «Коломна» (ГБПОУ МО «Колледж «Коломна»)" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="14" Width="270"/>
+                </Border>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="2" Margin="0,10" Grid.Column="0">
+                    <TextBlock Text="Дата создания образовательной организации" Width="270" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Height="60"/>
+                </Border>
+                <Border BorderThickness="2" Margin="0,10" Grid.Column="1">
+                    <TextBlock Text="30.12.2015" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="14" Width="270"/>
+                </Border>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="2" Margin="0,10" Grid.Column="0">
+                    <TextBlock Text="О наименовании представительств и филиалов образовательной организации (при наличии) (в том числе, находящихся за пределами Российской Федерации)" Width="270" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Height="60"/>
+                </Border>
+                <Border BorderThickness="2" Margin="0,10" Grid.Column="1">
+                    <TextBlock Text="Филиалов нет" Width="270" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Height="60"/>
+                </Border>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="2" Margin="0,10" Grid.Column="0">
+                    <TextBlock Text="О месте нахождения образовательной организации, ее представительств и филиалов (структурных подразделений)" Width="270" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Height="60"/>
+                </Border>
+                <Border BorderThickness="2" Margin="0,10" Grid.Column="1">
+                    <TextBlock Text="Структурное подразделение №4 (головное): 140402 Московская область, г. Коломна, ул. Октябрьской революции, д.408, помещение 1." FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                </Border>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="2" Margin="0,10" Grid.Column="1">
+                    <TextBlock Text="Структурное подразделение №1: 140408 Московская область, г. Коломна, ул. Партизан, д.1 Д." FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                </Border>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="2" Margin="0,10" Grid.Column="1">
+                    <TextBlock Text="Структурное подразделение №2: 140406 Московская область, г. Коломна, ул. Дзержинского, д.5а, пом.1" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                </Border>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="2" Margin="0,10" Grid.Column="1">
+                    <TextBlock Text="Мастерские структурного подразделения №2: 140402, Московская область, г. Коломна, ул. Шавырина, д.3." FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                </Border>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="2" Margin="0,10" Grid.Column="1">
+                    <TextBlock Text="Структурное подразделение №3: 140402, Московская область, ул. Октябрьской революции, д.408а; 140402 Московская область, г. Коломна, Окский проспект, д.40" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                </Border>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="2" Margin="0,10" Grid.Column="0">
+                    <TextBlock Text="О режиме и графике работы образовательной организации, ее представительств и филиалов (структурных подразделений)" Width="270" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Height="60"/>
+                </Border>
+                <Border BorderThickness="2" Margin="0,10" Grid.Column="1">
+                    <TextBlock Text="Понедельник – пятница 8.00 – 17.00   Суббота  8.00 – 15.00" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                </Border>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="2" Margin="0,10" Grid.Column="0">
+                    <TextBlock Text="Контактные телефоны" Width="270" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15"/>
+                </Border>
+                <Border BorderThickness="2" Margin="0,10" Grid.Column="1">
+                    <TextBlock Text="Приемная директора: +7 (496) 618-84-06" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                </Border>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="2" Grid.Column="1">
+                    <TextBlock Text="Учебная часть: +7 (496) 613-34-04" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                </Border>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="2" Margin="0,10" Grid.Column="1">
+                    <TextBlock Text="Приёмная комиссия: +7 (925) 640-72-17" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                </Border>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

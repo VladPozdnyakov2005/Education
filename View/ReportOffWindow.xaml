@@ -1,0 +1,79 @@
+﻿<Window x:Class="Education.View.ReportOffWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Education.View"
+        mc:Ignorable="d"
+        Title="Отчёт о курсе" Height="500" Width="850" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Resources>
+            <SolidColorBrush x:Key="HeaderBackgroundBrush" Color="#00BFFF"/>
+            <SolidColorBrush x:Key="SelectedRowBackgroundBrush" Color="#e4fafb"/>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock x:Name="CourseReportTextBlock" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Lucida console" FontWeight="Bold" FontSize="18" Foreground="blue" Margin="0,30,0,0" Padding="10,5,5,5" Background="#b8f2f3"/>
+        <TextBlock x:Name="TotalSeatsTextBlock" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Lucida console" FontWeight="Bold" FontSize="16" Foreground="blue" Margin="0,0,0,0" Padding="10,5,5,5" Background="#b8f2f3"/>
+        <TextBlock x:Name="FilledSeatsTextBlock" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Lucida console" FontWeight="Bold" FontSize="16" Foreground="blue" Margin="0,0,0,0" Padding="10,5,5,5" Background="#b8f2f3"/>
+        <TextBlock x:Name="RemainingSeatsTextBlock" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Lucida console" FontWeight="Bold" FontSize="16" Foreground="blue" Margin="0,0,0,0" Padding="10,5,5,5" Background="#b8f2f3"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Lucida console" FontWeight="Bold" FontSize="24" Foreground="Black" Margin="67,0,0,3" Text="Записи на курс"/>
+        <Image Source="/assets/CollegeIcon.png" Width="210" Height="218" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="-111,0,0,-45" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="28.369"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Source="/assets/CollegeIcon.png" Width="242" Height="203" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,-96,-39" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="5" Grid.Column="1">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-34.476"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <DataGrid x:Name="UsersDataGrid" Background="#d9fbfc" Grid.Row="1" Grid.Column="1" Grid.RowSpan="5" Margin="0,10,0,0" AutoGenerateColumns="False" Width="343" HorizontalAlignment="Left" Height="300" SelectionChanged="UsersDataGrid_SelectionChanged" CanUserAddRows="False" BorderBrush="Black" BorderThickness="2" IsReadOnly="True">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="{StaticResource HeaderBackgroundBrush}"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Style>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{StaticResource SelectedRowBackgroundBrush}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя" Binding="{Binding name}" Width="110"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding surname}" Width="130"/>
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding birth, StringFormat=dd.MM.yyyy}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="DeleteButton" Grid.Row="4" Grid.Column="0" Content="Удалить пользователя" Width="200" Height="30" BorderBrush="#00CED1" Background="LightYellow" FontWeight="Bold" IsEnabled="False" Click="DeleteButton_Click" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,50,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="EditButton" Grid.Row="4" Grid.Column="0" Content="Редактировать курс" Width="200" Height="30" BorderBrush="#00CED1" Background="LightYellow" FontWeight="Bold" Click="EditButton_Click" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,100,50,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" DataContext="{Binding}"/>
+
+    </Grid>
+</Window>
